@@ -3,7 +3,7 @@ import cv2
 from matplotlib import pyplot as plt
 from os.path import realpath, normpath
 
-test_image = 'Images/Presenters.jpg'
+test_image = 'Images/hosts.jpg'
 
 img = cv2.imread(test_image)
 
