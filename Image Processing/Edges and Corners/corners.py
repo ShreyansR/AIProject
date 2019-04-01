@@ -10,6 +10,7 @@ gray = np.float32(gray)
 
 corners = cv2.cornerHarris(gray, 2, 3, 0.04)
 
+#declare threshold margin 
 threshold = 0.001
 
 # Threshold may vary
