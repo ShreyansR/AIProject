@@ -1,3 +1,5 @@
+#for image processing technique clustering
+#importing libraries 
 import cv2
 import numpy as np
 from PIL import Image
@@ -113,9 +115,10 @@ for index, item in enumerate(tqdm(pixelClusterMembership)):
     outVec[index][1] = int(round(clusterCenters[item][1]))
     outVec[index][2] = int(round(clusterCenters[item][0]))
 
-# Save and display image
+# Save image
 img = Image.new("RGB", (imgWidth, imgHeight))
 
+#display image
 for y in tqdm(range(imgHeight), ascii=True):
     for x in range(imgWidth):
         img.putpixel((x, y), (
@@ -138,5 +141,6 @@ rgb = center[:,0:3]
 res = rgb[label.flatten()]
 img = res.reshape((imgHeight,imgWidth, 3))
 
+#show image
 plt.imshow(img)
 plt.show()
