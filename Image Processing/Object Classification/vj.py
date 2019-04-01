@@ -5,7 +5,7 @@ from os.path import realpath, normpath
 
 test_image = 'Images/hosts.jpg'
 
-#load image
+#load test image
 img = cv2.imread(test_image)
 
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
