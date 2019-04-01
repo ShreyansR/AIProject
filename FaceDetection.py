@@ -19,6 +19,7 @@ class SingleList(object):
     head = None
     tail = None
 
+    #displays list data
     def show(self):
         print "Showing list data:"
         current_node = self.head
@@ -27,6 +28,7 @@ class SingleList(object):
             current_node = current_node.next
         print None
 
+      #adds another node
     def append(self, data):
         node = Node(data, None)
         if self.head is None:
@@ -35,6 +37,7 @@ class SingleList(object):
             self.tail.next = node
         self.tail = node
 
+        #removes a node
     def remove(self, node_value):
         current_node = self.head
         previous_node = None
@@ -50,6 +53,7 @@ class SingleList(object):
             previous_node = current_node
             current_node = current_node.next
 
+     #visiting each node of the singaly linked list
     def traversal(self, n):
         current_node = self.head
         while n>0:
