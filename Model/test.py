@@ -22,7 +22,6 @@ def show_imgs(X):
     # show the plot
     pyplot.show()
 
-
 (x_train, y_train), (x_test, y_test) = keras.datasets.cifar10.load_data()
 
 x_train = x_train.astype('float32')
@@ -43,21 +42,15 @@ json_file.close()
 model = model_from_json(loaded_model_json)
 model.load_weights('model.h5')
 
-image = load_img('bird.jpg', target_size=(32, 32))
+image = load_img('dog.jpg', target_size=(32, 32))
 
 image = img_to_array(image)
 image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
 image = preprocess_input(image)
 
 labels = ['airplane', 'automobile', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-print("test")
-#pred = model.predict(image)
-#print('Predicted:', decode_predictions(pred, top=3)[0])
-#np.argmax(pred[0])
 indices = np.argmax(model.predict(image))
-#indices = model.predict(image)
-print(indices)
-print(labels[indices])
+print("The detected object in the image was a", labels[indices])
 
 #print('saving output to output.jpg')
 #pred_img = image.array_to_img(indices)
