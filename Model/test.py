@@ -6,7 +6,7 @@ import matplotlib.pyplot as pyplot
 from scipy.misc import toimage
 from keras.models import model_from_json
 from keras.preprocessing.image import load_img
-from keras.preprocessing.image import img_to_array
+from keras.preprocessing.image import img_to_array, array_to_img
 from keras.applications.vgg16 import preprocess_input
 from keras.applications.vgg16 import decode_predictions
 
@@ -43,7 +43,8 @@ json_file.close()
 model = model_from_json(loaded_model_json)
 model.load_weights('model.h5')
 
-image = load_img('car.jpg', target_size=(32, 32))
+image = load_img('bird.jpg', target_size=(32, 32))
+
 image = img_to_array(image)
 image = image.reshape((1, image.shape[0], image.shape[1], image.shape[2]))
 image = preprocess_input(image)
@@ -54,5 +55,10 @@ print("test")
 #print('Predicted:', decode_predictions(pred, top=3)[0])
 #np.argmax(pred[0])
 indices = np.argmax(model.predict(image))
+#indices = model.predict(image)
 print(indices)
-#print([labels[x] for x in indices])
+print(labels[indices])
+
+#print('saving output to output.jpg')
+#pred_img = image.array_to_img(indices)
+#pred_img.save('output.jpg')
