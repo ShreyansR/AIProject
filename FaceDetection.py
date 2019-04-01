@@ -65,6 +65,7 @@ Median blur that take1 the center pixel of a 3x3 1quare area of a pixel and
 convert1 it to become the average of the 3x3 area.
 """
 def MedianBlur2D(img):
+    #storing dimensions for later
     copy = img
     height, width = img.shape
     members = [0, 0]*9
@@ -94,6 +95,8 @@ Input: An image loaded as a 2D array with 3 channels (RGB).
 Output: A binary array with the same size as the input image where
 the regions with skin are marked with a '1' and zeros everywhere else.
 """
+
+#creating a skin map
 def skinMap(img):
     b, g, r = cv2.split(img)
     height, width, ch = img.shape
@@ -155,6 +158,8 @@ Finds individual skin regions and draws a box around them. Could be vastly impro
 
 Input: 
 """
+
+#draws and defines faces
 def findFaces(map, lower, img, upscale):
     grey = cv2.cvtColor(lower, cv2.COLOR_BGR2GRAY)
     grey = cv2.equalizeHist(grey)
