@@ -2,6 +2,7 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
+#load image
 img = cv2.imread("./Images/mrbean.jpg")
 b,g,r = cv2.split(img)
 org_img = cv2.merge([r, g, b])
