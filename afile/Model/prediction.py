@@ -9,6 +9,9 @@ from PIL import ImageTk,Image
 import cv2
 import PIL.Image, PIL.ImageTk
 
+import pygame
+import pygame.camera
+
 
 import keras
 import numpy as np
@@ -130,6 +133,20 @@ def chooseFile():
     #indices_img.save('output.jpg')
 
 
+#def takePic():
+#    cap = cv2.VideoCapture(0)
+
+    # Check if the webcam is opened correctly
+ #   if not cap.isOpened():
+  ## while True:
+    #    ret, frame = cap.read()
+     ##  cv2.imshow('Input', frame)
+
+       ##if c == 27:
+        #    break
+
+    #cap.release()
+    #cv2.destroyAllWindows()
 
 
 
